@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Home Page </title>
+</head>
+<body>
+    {% if username %}
+    <aside>Welcome {{username}}</aside>
+    {% endif %}
+    <h1>{{app_name}} is enabled</h1>
+    <form method="post" action="">
+        <input type="hidden" name="csrftoken" value="{{csrf_token()}}">
+        <input type="text" name="username" placeholder="Enter your name">
+        <input type="submit">
+    </form>
+</body>
+</html>
