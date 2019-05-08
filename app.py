@@ -24,7 +24,7 @@ def index():
     if request.method == 'POST':
         form_details = validate(request.form)
         username = form_details.get('username')
-        return 'Hello {}, you are protected'.format(username)
+        return render_template('home.html', app_name="CSRF Protection", username=username)
     return render_template('home.html', app_name="CSRF Protection", username=username)
 
 
@@ -35,7 +35,7 @@ def validate(form_details):
 
 def generate_csrf_token():
     if 'csrf_token' not in session:
-        random_string = str(uuid.uuid5)
+        random_string = str(uuid.uuid4)
         session['csrf_token'] = random_string
     return session['csrf_token']
 
