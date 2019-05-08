@@ -5,8 +5,6 @@ If a request is sent via the form/link presented to the user on the application 
 prevent the web application from responding to requests that were not made via a form/link presented to the user. This is achieved by including a random string in the user's session to act
 as a CSRF token. The token is also included in the form presented on the frontend in a hidden field. If an attacker succeeds in sending a well-crafted state-changing request to the appropriate
 route, although the request will be sent along with the victim's session details (if the user is authenticated), yet the request will not include the correct unique identifier which is only included 
-in the form on the victim's browser. I have also included logging to get notifications when CSRF attacks are made, though logs are not sent to the application in this basic implementation.
+in the form on the victim's browser. I have also included logging to get notified when CSRF attacks are made, though logs are not sent to the application in this basic implementation.
 
-I have used jinja to display this visually and as a basic implementation I have only one csrf_token, but when building a real product, I will generate a unique identifier for every form/link and keep a list a valid identifiers in the user's session as well as on the form/links
-to be sent along with the request. 
 
